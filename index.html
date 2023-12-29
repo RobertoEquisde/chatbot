@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Chatbot JobHelper</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Botón para abrir el chatbot -->
+  <div id="chatbot-toggle" class="chat-toggle">
+    <img src="img/chatbot2.png" alt="Chat" class="toggle-icon">
+  </div>
+
+  <!-- Contenedor del Chatbot -->
+  <div id="chatbot-container" class="chatbot-container" style="display: none;">
+    <div class="chatbot-header">
+      <img src="img/chatbot1.png" alt="Chatbot" class="chatbot-icon">
+      JobHelper
+      <div class="chatbot-close" onclick="toggleChatbot()">X</div>
+    </div>
+    <div class="chatbot-body">
+      <div id="mensaje-inicial" class="chatbot-message">
+        <p>¡Saludos! Soy JobHelper, tu guía virtual en el mundo laboral. Mi misión es facilitarte el camino hacia oportunidades laborales que se alineen perfectamente con tus habilidades y expectativas. ¿Con qué te puedo ayudar?</p>
+        <div class="chatbot-button-container">
+          <button onclick="mostrarPreguntaPerfil()">Buscar vacantes por perfil</button>
+          <button onclick="iniciarBusquedaPorUbicacion()">Buscar vacantes por ubicacion</button>
+          <button onclick="mostrarPreguntaPerfil()">Seguimiento de mi postulacion</button>
+        </div>
+      </div>
+    </div>
+     <div id="seleccion-ubicacion-container" style="display: none;">
+        <div class="chatbot-message">
+            <p>¿En qué estado deseas buscar tu vacante?</p>
+            <select id="seleccion-estado" onchange="mostrarAlcaldias(this.value);">
+                <!-- Opciones de estados aquí -->
+            </select>
+        </div>
+        <div class="chatbot-message">
+            <p>¿En qué municipio de <span id="estado-seleccionado">[ESTADO]</span> deseas buscar la vacante?</p>
+            <select id="seleccion-alcaldia">
+                <!-- Opciones de alcaldías aquí, se llenarán basadas en la elección del estado -->
+            </select>
+            <button onclick="buscarVacantes()">Buscar Vacantes</button>
+        </div>
+    </div>
+    <!-- Caja de texto y botón para enviar respuestas, inicialmente ocultos -->
+    <div id="user-input-container" class="user-input-container" style="display: none;">
+      <input type="text" id="user-input" placeholder="Escribe aquí tu respuesta...">
+      <button onclick="enviarRespuesta()">Enviar</button>
+    </div>
+  </div>
+  <!-- ubicacion-->
+  <!-- Contenedor para seleccionar estado, oculto inicialmente -->
+  <div id="seleccion-estado-container" class="chatbot-message" style="display: none;">
+    <select id="seleccion-estado">
+      <!-- Opciones de estados aquí -->
+    </select>
+    <!-- El botón para continuar se muestra después de seleccionar un estado -->
+  </div>
+  <!-- Contenedor para seleccionar alcaldía, oculto inicialmente -->
+  <div id="seleccion-alcaldia-container" class="chatbot-message" style="display: none;">
+    <select id="seleccion-alcaldia">
+      <!-- Opciones de alcaldías aquí -->
+    </select>
+    <!-- El botón para buscar vacantes se muestra después de seleccionar una alcaldía -->
+  </div>
+  <script src="/js/script.js"></script>
+
+</body>
+</html>
